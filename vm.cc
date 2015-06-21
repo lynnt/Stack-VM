@@ -9,7 +9,7 @@ using namespace std;
 void push(){
     stackPointer++;
     stack[stackPointer] = program[++programCounter];
-    cout << "Pushing value " << program[++programCounter] << "..." << endl;
+    cout << "Pushing value " << program[programCounter] << "..." << endl;
 }
 
 void halt(){
@@ -33,7 +33,7 @@ int fetch(int programCounter){
     return program[programCounter];
 }
 
-void evaluate(int instruction){
+int evaluate(int instruction){
     switch(instruction){
         case HALT: {
                        halt();
@@ -51,6 +51,9 @@ void evaluate(int instruction){
                       add();
                       break;
                   }
+        default:
+                  cerr << "This instruction isn't supported" << endl;
+                  return -1;
     }
 }
 
@@ -61,13 +64,16 @@ void virtualize(){
     }
 }
 
-// Read file into virtual machine
-void openFile(ifstream& input, char* filename){
+int openFile(ifstream& input, char* filename){
     input.open(filename);
-    if(!input.is_open()){}
+    if(!input.is_open()){
+        cerr << "Can't open file." << endl;
+        return -1;
+    }
 }
 
 void closeFile(ifstream& input){
+    input.close();
 }
 
 int main(){

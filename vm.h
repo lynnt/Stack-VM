@@ -55,9 +55,14 @@ void add();
 int fetch(int programCounter);
 
 // Evaluate instructions by checking each instruction and execute appropriately
-void evaluate(int instruction);
+int evaluate(int instruction);
 
 // Virtualize program by evaluating and then incrementing the program counter to the next instruction
 void virtualize();
 
+// Read file into virtual machine
+int openFile(ifstream& input, char* filename);
+
+// Close file
+void closeFile(ifstream& input);
 #endif /*VM_H*/
