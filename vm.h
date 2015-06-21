@@ -9,12 +9,14 @@
 #include<iostream>
 #include<string>
 #include<fstream>
+#include<cassert>
 using namespace std;
 #define STACK_SIZE 256
 
 typedef enum{
     PUSH,
     ADD,
+    MULTI,
     POP,
     SET,
     HALT
@@ -29,12 +31,13 @@ const int program[] = {
     PUSH, 5,
     PUSH, 6,
     ADD,
+    MULTI,
     POP,
     HALT
 };
 
 int registers[NUM_REGISTERS];
-int programCounter = 0;
+unsigned short programCounter = 0;
 bool isRunning = 1;
 int stackPointer = -1;
 int stack[STACK_SIZE];

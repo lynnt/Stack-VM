@@ -18,15 +18,36 @@ void halt(){
 }
 
 void pop(){
+    assert(stackPointer > -1);
     int val = stack[stackPointer--];
     cout << "Popping value " << val << " ..." << endl;
 }
 
 void add(){
+    assert(stackPointer > -1);
     int firstVal = stack[stackPointer--];
     int secondVal = stack[stackPointer--];
     stack[++stackPointer] = firstVal + secondVal;
-    cout << "Adding " << firstVal << " + " << secondVal << " into " << stackPointer+1 << " ..." << endl;
+    cout << "Adding " << firstVal << " + " << secondVal << " into " << stackPointer << " ..." << endl;
+}
+
+void multi(){
+    assert(stackPointer > -1);
+    int firstVal = stack[stackPointer--];
+    int secondVal = stack[stackPointer--];
+    stack[++stackPointer] = firstVal * secondVal;
+    cout << "Multiplying " << firstVal << " * " << secondVal << " into " << stackPointer << " ..." << endl;
+}
+
+void jz(int index){
+    assert(stackPointer > -1);
+    if(stackPointer == 0){
+        stackPointer--;
+        programCounter = index;
+    }
+    else if(stackPointer > 0){
+        stackPointer--;
+    }
 }
 
 int fetch(int programCounter){
@@ -51,9 +72,13 @@ int evaluate(int instruction){
                       add();
                       break;
                   }
+        case MULTI: {
+                      multi();
+                      break;
+                    }
         default:
-                  cerr << "This instruction isn't supported" << endl;
-                  return -1;
+                    cerr << "This instruction isn't supported" << endl;
+                    return -1;
     }
 }
 
