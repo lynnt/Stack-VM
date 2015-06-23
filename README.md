@@ -5,8 +5,9 @@ A Stack based virtual machine
 * An execution unit to run program
 
 ##INSTRUCTION SET
+
 INSTRUCTION | OPERATION
------------------------
+------------| -------------
 PUSH        |   Push value on the stack
 ADD         |   Add 2 values together
 MULTI       |   Multiply 2 values together
