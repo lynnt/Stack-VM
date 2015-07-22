@@ -5,7 +5,7 @@ CFLAGS=-g -Wall -pedantic
 OBJECT = vm.o
 
 all: $(OBJECT)
-	$(CXX) $(OBJECT) -o vm
+	$(CXX) $(CFLAGS) $(OBJECT) -o vm
 
 run: vm
 	./vm
