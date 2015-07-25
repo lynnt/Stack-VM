@@ -1,11 +1,14 @@
 A Stack based virtual machine
 ##HOW TO RUN
 Currently the program array in vm.h is what will get run as a program
-    ### TO BUILD:
+
+### TO BUILD:
     'make all'
-    ### TO RUN:
+
+### TO RUN:
     'make run'
-    ### TO CLEAN:
+
+### TO CLEAN:
     'make clean'
 
 ##DESIGN
