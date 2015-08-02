@@ -30,5 +30,5 @@ HALT        |   Terminate the program
 
 ##IMPROVEMENT
     * Read in a file of program instead of the array in vm.h
-    * Added more instructions
-    * Added the decoding step where it uses addresses
+    * Add more instructions
+    * Add the decoding step where it uses addresses
