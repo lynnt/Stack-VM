@@ -3,10 +3,10 @@ CXX=g++ #C++ compiler
 CFLAGS=-g -Wall -pedantic
 
 OBJECT = vm.o
-NAME = vm
+FILE = vm.c
 
 all: $(OBJECT)
-	$(CXX) $(CFLAGS) $(OBJECT) -o $(NAME)
+	$(CC) $(CFLAGS) $(FILE) -o $(OBJECT)
 
 run: vm
 	./vm
